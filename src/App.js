@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 import FormInput from './components/FormInput';
+import { Alert } from '@mui/material';
 
 function App() {
+  const [notification, setNotification] = useState(false);
   const [user, setUser] = useState({
     username: '',
     email: '',
@@ -65,20 +67,27 @@ function App() {
   }
   const submitForm = (e) => {
     e.preventDefault();
-    console.log(user);
+    console.log("User Data: ", user);
+    setNotification(true);
   }
   return (
-    <div className="App">
-      <form onSubmit={submitForm}>
-        <h1>Register</h1>
-        {
-          inputs.map((input) => {
-            return <FormInput key={input.id} {...input} value={user[input.name]} onChange={handleChange} />
-          })
-        }
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <>
+      {
+        notification &&
+        <Alert onClose={() => setNotification(false)} severity="success">Form Submitted Successfully!</Alert>
+      }
+      <div className="App">
+        <form onSubmit={submitForm}>
+          <h1>Register</h1>
+          {
+            inputs.map((input) => {
+              return <FormInput key={input.id} {...input} value={user[input.name]} onChange={handleChange} />
+            })
+          }
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </>
   );
 }
 

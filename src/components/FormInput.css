@@ -12,10 +12,10 @@ input {
     border: 1px solid gray;
 }
 
-label {
-    font-size: 12px;
+/* label {
+    font-size: 14px;
     color: gray;
-}
+} */
 
 span {
     font-size: 12px;
