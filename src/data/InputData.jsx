@@ -24,8 +24,8 @@ export const inputs = [
         id: 4,
         name: 'confirmpassword',
         type: 'password',
-        placeholder: 'Password',
-        label: 'Password'
+        placeholder: 'Retype Password',
+        label: 'Confirm Password'
     },
     {
         id: 5,

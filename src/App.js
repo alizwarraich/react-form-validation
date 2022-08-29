@@ -21,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <form onSubmit={submitForm}>
+        <h1>Register</h1>
         {
           inputs.map((input) => {
             return <FormInput key={input.id} {...input} value={user[input.name]} onChange={handleChange} />
